@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WAy-B0-G0j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DkN-Gv-Xag">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -119,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="1372" y="-474"/>
         </scene>
-        <!--View Controller-->
+        <!--Image View Controller-->
         <scene sceneID="rAr-Gr-ku8">
             <objects>
-                <viewController id="DkN-Gv-Xag" sceneMemberID="viewController">
+                <viewController id="DkN-Gv-Xag" customClass="ImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iEa-Yr-rm0"/>
                         <viewControllerLayoutGuide type="bottom" id="4Uc-AV-JCA"/>
@@ -130,9 +130,32 @@
                     <view key="view" contentMode="scaleToFill" id="6b5-ge-sa7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDt-TP-qNn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QRP-Zo-fgE">
+                                <rect key="frame" x="142" y="266" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hDt-TP-qNn" firstAttribute="top" secondItem="6b5-ge-sa7" secondAttribute="top" id="0zD-R5-tzx"/>
+                            <constraint firstAttribute="centerX" secondItem="hDt-TP-qNn" secondAttribute="centerX" id="9tH-5M-ib8"/>
+                            <constraint firstAttribute="centerY" secondItem="QRP-Zo-fgE" secondAttribute="centerY" id="NFu-rx-S1z"/>
+                            <constraint firstAttribute="centerY" secondItem="hDt-TP-qNn" secondAttribute="centerY" id="WpR-Fd-Ej5"/>
+                            <constraint firstAttribute="centerX" secondItem="QRP-Zo-fgE" secondAttribute="centerX" id="pt7-n3-Iov"/>
+                            <constraint firstItem="hDt-TP-qNn" firstAttribute="leading" secondItem="6b5-ge-sa7" secondAttribute="leading" id="sfQ-Rj-Evz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sRx-Tb-RuW"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="QRP-Zo-fgE" id="Hae-6H-6PC"/>
+                        <outlet property="scrollView" destination="hDt-TP-qNn" id="XZj-vQ-eI2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kKc-fB-ak4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
