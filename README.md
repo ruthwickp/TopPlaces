@@ -1,3 +1,3 @@
 # Top Places
 
-# App presents list of top Flickr photo spots
+This app presents list of top Flickr photo spots and allows the user to view the most recent photos in a particular location.
