@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7D0E35ED197ECD0C00FF09D0 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E35EC197ECD0C00FF09D0 /* FlickrFetcher.m */; };
 		7D0E35F0197ECD9B00FF09D0 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E35EF197ECD9B00FF09D0 /* ImageViewController.m */; };
+		7D0E35F3197EF95F00FF09D0 /* FlickrPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E35F2197EF95F00FF09D0 /* FlickrPhotoTVC.m */; };
+		7D31B956198049C900E21BFF /* FlickrLocationPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D31B955198049C900E21BFF /* FlickrLocationPhotosTVC.m */; };
 		7D645F44197E240900D3BE67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D645F43197E240900D3BE67 /* Foundation.framework */; };
 		7D645F46197E240900D3BE67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D645F45197E240900D3BE67 /* CoreGraphics.framework */; };
 		7D645F48197E240900D3BE67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D645F47197E240900D3BE67 /* UIKit.framework */; };
@@ -42,6 +44,10 @@
 		7D0E35EC197ECD0C00FF09D0 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		7D0E35EE197ECD9B00FF09D0 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		7D0E35EF197ECD9B00FF09D0 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		7D0E35F1197EF95F00FF09D0 /* FlickrPhotoTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoTVC.h; sourceTree = "<group>"; };
+		7D0E35F2197EF95F00FF09D0 /* FlickrPhotoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoTVC.m; sourceTree = "<group>"; };
+		7D31B954198049C900E21BFF /* FlickrLocationPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrLocationPhotosTVC.h; sourceTree = "<group>"; };
+		7D31B955198049C900E21BFF /* FlickrLocationPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrLocationPhotosTVC.m; sourceTree = "<group>"; };
 		7D645F40197E240900D3BE67 /* TopPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D645F43197E240900D3BE67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D645F45197E240900D3BE67 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +138,10 @@
 			isa = PBXGroup;
 			children = (
 				7D645F55197E240900D3BE67 /* Main_iPhone.storyboard */,
+				7D0E35F1197EF95F00FF09D0 /* FlickrPhotoTVC.h */,
+				7D0E35F2197EF95F00FF09D0 /* FlickrPhotoTVC.m */,
+				7D31B954198049C900E21BFF /* FlickrLocationPhotosTVC.h */,
+				7D31B955198049C900E21BFF /* FlickrLocationPhotosTVC.m */,
 				7D0E35EE197ECD9B00FF09D0 /* ImageViewController.h */,
 				7D0E35EF197ECD9B00FF09D0 /* ImageViewController.m */,
 				7D645F58197E240900D3BE67 /* Main_iPad.storyboard */,
@@ -274,8 +284,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D0E35F0197ECD9B00FF09D0 /* ImageViewController.m in Sources */,
+				7D31B956198049C900E21BFF /* FlickrLocationPhotosTVC.m in Sources */,
 				7D645F5D197E240900D3BE67 /* ViewController.m in Sources */,
 				7D645F54197E240900D3BE67 /* AppDelegate.m in Sources */,
+				7D0E35F3197EF95F00FF09D0 /* FlickrPhotoTVC.m in Sources */,
 				7D0E35ED197ECD0C00FF09D0 /* FlickrFetcher.m in Sources */,
 				7D645F50197E240900D3BE67 /* main.m in Sources */,
 			);

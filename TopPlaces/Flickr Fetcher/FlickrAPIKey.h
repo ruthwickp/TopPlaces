@@ -8,4 +8,4 @@
 //  No Flickr fetches will work without the API Key!
 //
 
-#define FlickrAPIKey @""
+#define FlickrAPIKey @"3569f050ca025dd709033f728bd41c1d"
