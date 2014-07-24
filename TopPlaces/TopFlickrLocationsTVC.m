@@ -58,37 +58,45 @@
 }
 
 // Updates top photo locations through Flickr
-- (void)updateLocationSpots
+- (IBAction)updateLocationSpots
 {
-    // Retrieves top places for Flickr photos
-    NSURL *locations = [FlickrFetcher URLforTopPlaces];
-    NSData *jsonLocationResults = [NSData dataWithContentsOfURL:locations];
-    NSDictionary *locationResults = [NSJSONSerialization JSONObjectWithData:jsonLocationResults
-                                                                    options:0
-                                                                      error:NULL];
-    NSArray *photoPlaces = [locationResults valueForKeyPath:FLICKR_RESULTS_PLACES];
-    
-    // Goes through all the photo locations and store them in a dictionary
-    // according to country
-    [photoPlaces enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        // Retrieves country for the top places
-        NSArray *locationDetails = [[obj valueForKey:FLICKR_PLACE_NAME] componentsSeparatedByString:@", "];
-        NSString *country = [locationDetails lastObject];
+    // Performs url fetching operations on another queue to
+    [self.refreshControl beginRefreshing];
+    dispatch_queue_t fetchQ = dispatch_queue_create("fetchQ", NULL);
+    dispatch_async(fetchQ, ^{
+        // Retrieves top places for Flickr photos
+        NSURL *locations = [FlickrFetcher URLforTopPlaces];
+        NSData *jsonLocationResults = [NSData dataWithContentsOfURL:locations];
+        NSDictionary *locationResults = [NSJSONSerialization JSONObjectWithData:jsonLocationResults
+                                                                        options:0
+                                                                          error:NULL];
+        NSArray *photoPlaces = [locationResults valueForKeyPath:FLICKR_RESULTS_PLACES];
         
-        // Adds the object photo details to its corresponding country
-        NSMutableArray *countryPhotoLocations = [self.topLocations objectForKey:country];
-        if (countryPhotoLocations) {
-            [countryPhotoLocations addObject:obj];
-        }
-        else {
-            NSMutableArray *allLocation = [[NSMutableArray alloc] initWithObjects:obj, nil];
-            [self.topLocations setValue:allLocation forKey:country];
-        }
-    }];
-    [self sortCountriesAndCities];
-
-    // Reloads tableview data when locations get updated
-    [self.tableView reloadData];
+        // Goes through all the photo locations and store them in a dictionary
+        // according to country
+        [photoPlaces enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            // Retrieves country for the top places
+            NSArray *locationDetails = [[obj valueForKey:FLICKR_PLACE_NAME] componentsSeparatedByString:@", "];
+            NSString *country = [locationDetails lastObject];
+            
+            // Adds the object photo details to its corresponding country
+            NSMutableArray *countryPhotoLocations = [self.topLocations objectForKey:country];
+            if (countryPhotoLocations) {
+                [countryPhotoLocations addObject:obj];
+            }
+            else {
+                NSMutableArray *allLocation = [[NSMutableArray alloc] initWithObjects:obj, nil];
+                [self.topLocations setValue:allLocation forKey:country];
+            }
+        }];
+        [self sortCountriesAndCities];
+        
+        // Reloads tableview data when locations get updated on main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.refreshControl endRefreshing];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 // Stores the sorted countries and cities in the toplocation dictionary
