@@ -8,6 +8,10 @@
 
 #import "FlickrPhotoTVC.h"
 
+// Class displays tableview of top Flickr photos from a
+// specific location
 @interface FlickrLocationPhotosTVC : FlickrPhotoTVC
 
+// Location of photos
+@property (nonatomic, strong) id location;
 @end

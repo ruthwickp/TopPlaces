@@ -23,16 +23,16 @@
             </objects>
             <point key="canvasLocation" x="-98" y="-273"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Top Flickr LocationsTVC - Top Places-->
         <scene sceneID="Aju-Z0-gSG">
             <objects>
-                <tableViewController id="dof-k3-bOB" sceneMemberID="viewController">
+                <tableViewController id="dof-k3-bOB" customClass="TopFlickrLocationsTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hRk-Aw-CBA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="P4u-Fp-njL" detailTextLabel="wPY-CG-0f1" style="IBUITableViewCellStyleSubtitle" id="cR6-xS-VKG">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Location Cell" textLabel="P4u-Fp-njL" detailTextLabel="wPY-CG-0f1" style="IBUITableViewCellStyleSubtitle" id="cR6-xS-VKG">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cR6-xS-VKG" id="tHs-9Q-hXM">
@@ -56,7 +56,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="1lX-2M-ZSS" kind="push" id="jNS-Nt-97A"/>
+                                    <segue destination="1lX-2M-ZSS" kind="push" identifier="Display Location Photos" id="jNS-Nt-97A"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -65,16 +65,16 @@
                             <outlet property="delegate" destination="dof-k3-bOB" id="pRb-JD-ru5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="POh-lT-eRw"/>
+                    <navigationItem key="navigationItem" title="Top Places" id="POh-lT-eRw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EU-l4-lT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="892" y="-474"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Flickr Location PhotosTVC-->
         <scene sceneID="oRY-c0-llc">
             <objects>
-                <tableViewController id="1lX-2M-ZSS" sceneMemberID="viewController">
+                <tableViewController id="1lX-2M-ZSS" customClass="FlickrLocationPhotosTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tVH-tc-oq1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

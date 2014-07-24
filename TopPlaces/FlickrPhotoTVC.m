@@ -43,8 +43,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Flickr Photo Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [self.photos[indexPath.row] valueForKeyPath:FLICKR_PHOTO_TITLE];
-    cell.detailTextLabel.text = [self.photos[indexPath.row] valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+    NSString *title = [self.photos[indexPath.row] valueForKeyPath:FLICKR_PHOTO_TITLE];
+    NSString *description = [self.photos[indexPath.row] valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+    
+    // Configures title and description accordingly
+    title = title ? title : description;
+    if (!title && !description) {
+        title = @"Unknown";
+        description = @"Unknown";
+    }
+    
+    // Sets title and descriptions of cell
+    cell.textLabel.text = title;
+    cell.detailTextLabel.text = description;
     
     return cell;
 }

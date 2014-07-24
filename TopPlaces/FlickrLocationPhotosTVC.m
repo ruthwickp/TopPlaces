@@ -7,6 +7,7 @@
 //
 
 #import "FlickrLocationPhotosTVC.h"
+#import "FlickrFetcher.h"
 
 @interface FlickrLocationPhotosTVC ()
 
@@ -14,36 +15,34 @@
 
 @implementation FlickrLocationPhotosTVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#define MAX_PHOTOS 50
+
+// If the location becomes set, updates photos for that corresponding location
+- (void)setLocation:(id)location
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    _location = location;
+    [self updatePhotosInLocation];
 }
 
+// When view loads, updates photos in tableview
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self updatePhotosInLocation];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)updatePhotosInLocation
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // If a location has been set, gets photos
+    if (self.location) {
+        NSURL *urlPhotoLocation = [FlickrFetcher URLforPhotosInPlace:self.location maxResults:MAX_PHOTOS];
+        
+        NSData *jsonResults = [NSData dataWithContentsOfURL:urlPhotoLocation];
+        NSDictionary *locationPhotoResults = [NSJSONSerialization JSONObjectWithData:jsonResults
+                                                                             options:0
+                                                                               error:NULL];
+        NSLog(@"%@", locationPhotoResults);
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
