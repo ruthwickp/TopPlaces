@@ -141,12 +141,12 @@
 			isa = PBXGroup;
 			children = (
 				7D645F55197E240900D3BE67 /* Main_iPhone.storyboard */,
-				7D0E35F1197EF95F00FF09D0 /* FlickrPhotoTVC.h */,
-				7D0E35F2197EF95F00FF09D0 /* FlickrPhotoTVC.m */,
 				7D31B9571980542200E21BFF /* TopFlickrLocationsTVC.h */,
 				7D31B9581980542200E21BFF /* TopFlickrLocationsTVC.m */,
 				7D31B954198049C900E21BFF /* FlickrLocationPhotosTVC.h */,
 				7D31B955198049C900E21BFF /* FlickrLocationPhotosTVC.m */,
+				7D0E35F1197EF95F00FF09D0 /* FlickrPhotoTVC.h */,
+				7D0E35F2197EF95F00FF09D0 /* FlickrPhotoTVC.m */,
 				7D0E35EE197ECD9B00FF09D0 /* ImageViewController.h */,
 				7D0E35EF197ECD9B00FF09D0 /* ImageViewController.m */,
 				7D645F58197E240900D3BE67 /* Main_iPad.storyboard */,

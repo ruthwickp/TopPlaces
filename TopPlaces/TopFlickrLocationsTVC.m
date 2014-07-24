@@ -51,9 +51,11 @@
 #pragma mark - Flickr Top Places Data
 
 // Updates tableView when view appears
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
+    [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.bounds.size.height)
+                            animated:YES];
     [self updateLocationSpots];
 }
 

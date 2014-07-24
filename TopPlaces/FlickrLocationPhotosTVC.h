@@ -12,6 +12,6 @@
 // specific location
 @interface FlickrLocationPhotosTVC : FlickrPhotoTVC
 
-// Location of photos
+// Location of photos (place_id)
 @property (nonatomic, strong) id location;
 @end

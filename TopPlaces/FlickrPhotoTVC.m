@@ -47,8 +47,8 @@
     NSString *description = [self.photos[indexPath.row] valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
     
     // Configures title and description accordingly
-    title = title ? title : description;
-    if (!title && !description) {
+    title = ![title isEqualToString:@""] ? title : description;
+    if ([title isEqualToString:@""] && [description isEqualToString:@""]) {
         title = @"Unknown";
         description = @"Unknown";
     }
@@ -63,8 +63,9 @@
 // Helper method to display and set info for image view controller
 - (void)prepareImageViewController:(ImageViewController *)ivc toDisplayPhoto:(NSDictionary *)photo
 {
+    NSString *title = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
+    ivc.title = [title isEqualToString:@""] ? @"Unknown" : title ;
     ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
-    ivc.title = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
 }
 
 #pragma mark - Navigation
@@ -74,7 +75,7 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([sender isKindOfClass:[UITableView class]]) {
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
             NSDictionary *photo = self.photos[indexPath.row];

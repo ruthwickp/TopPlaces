@@ -120,6 +120,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="3ht-Gd-Ael"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="2UP-Bv-cRZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="updatePhotosInLocation" destination="1lX-2M-ZSS" eventType="valueChanged" id="0N7-mG-NHw"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cu-Tr-Rkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
