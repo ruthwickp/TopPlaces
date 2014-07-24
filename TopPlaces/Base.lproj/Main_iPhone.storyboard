@@ -173,24 +173,40 @@
             </objects>
             <point key="canvasLocation" x="1864" y="-474"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Recently Viewed Flickr PhotosTVC - Recently Viewed Photos-->
         <scene sceneID="126-3g-PE8">
             <objects>
-                <tableViewController id="LYy-GQ-XlW" sceneMemberID="viewController">
+                <tableViewController id="LYy-GQ-XlW" customClass="RecentlyViewedFlickrPhotosTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BlR-3C-poK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="UT5-8D-Z0b">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo Cell" textLabel="SwZ-wN-GNf" detailTextLabel="Ewl-wu-sst" style="IBUITableViewCellStyleSubtitle" id="UT5-8D-Z0b">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UT5-8D-Z0b" id="SEr-LY-j3O">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SwZ-wN-GNf">
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ewl-wu-sst">
+                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="DkN-Gv-Xag" kind="push" id="aOi-ok-gfE"/>
+                                    <segue destination="DkN-Gv-Xag" kind="push" identifier="Display Photo" id="aOi-ok-gfE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -199,7 +215,7 @@
                             <outlet property="delegate" destination="LYy-GQ-XlW" id="uFQ-Ve-3ug"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="nHX-EQ-6br"/>
+                    <navigationItem key="navigationItem" title="Recently Viewed Photos" id="nHX-EQ-6br"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6X-7x-OHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,6 +266,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3Vx-xj-lv0"/>
+        <segue reference="aOi-ok-gfE"/>
     </inferredMetricsTieBreakers>
 </document>

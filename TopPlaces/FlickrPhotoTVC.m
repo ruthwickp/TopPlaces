@@ -63,9 +63,25 @@
 // Helper method to display and set info for image view controller
 - (void)prepareImageViewController:(ImageViewController *)ivc toDisplayPhoto:(NSDictionary *)photo
 {
+    // Adds photo to recentlyViewed
+    [self addPhotoToRecentlyViewed:photo];
     NSString *title = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
     ivc.title = [title isEqualToString:@""] ? @"Unknown" : title ;
     ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
+}
+
+// Adds photo to NSUserDefaults storage
+- (void)addPhotoToRecentlyViewed:(NSDictionary *)photo
+{
+    // Gets current list of recently viewed photos
+    NSMutableArray *recentlyViewed = [[[NSUserDefaults standardUserDefaults] objectForKey:@"RecentlyViewed"] mutableCopy];
+    if ([recentlyViewed containsObject:photo]) {
+        [recentlyViewed removeObject:photo];
+    }
+    // Adds the photo to storage
+    [recentlyViewed insertObject:photo atIndex:0];
+    [[NSUserDefaults standardUserDefaults] setObject:recentlyViewed forKey:@"RecentlyViewed"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Navigation
