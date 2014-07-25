@@ -1,3 +1,3 @@
 # Top Places
 
-This app presents list of top Flickr photo spots and allows the user to view the most recent photos in a particular location.
+This app allows users to view Flickr photos from top location spots. App can work in both iPhone and iPad devices. 
